@@ -104,10 +104,12 @@ d3.csv("./download.csv", function(error, data) {
   // add the y Axis
   svg.append("g")
       .call(d3.axisLeft(y));
+});
+
 
 // ** Update data section (Called from the onclick)
 function updateData() {
-
+// get the data
 d3.csv("./upload.csv", function(error, data) {
   if (error) throw error;
 
@@ -138,9 +140,9 @@ d3.csv("./upload.csv", function(error, data) {
   // add the y Axis
   svg.append("g")
       .call(d3.axisLeft(y));
-    });
-	
 });
 
+}
+	
 </script>
 </body>
