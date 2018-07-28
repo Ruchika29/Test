@@ -40,9 +40,8 @@ d3.csv("./operator_avgspeed.csv", function(error, data) {
 
   // format the data
   data.forEach(function(d) {
-    d.sales = +d.sales;
+    d.avgspeed = +d.avgspeed;
   });
-
 
   // Scale the range of the data in the domains
   x.domain(data.map(function(d) { return d.operator; }));
