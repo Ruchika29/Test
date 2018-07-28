@@ -76,7 +76,7 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 svg.call(tip);
-d3.csv("./download.csv", type, function(error, data) {
+d3.csv("./allrecords.csv", type, function(error, data) {
   x.domain(data.map(function(d) { return d.operator; }));
   y.domain([0, d3.max(data, function(d) { return d.avgspeed; })]);
   svg.append("g")
