@@ -133,15 +133,6 @@ d3.csv("./upload.csv", function(error, data) {
       .attr("width", x.bandwidth())
       .attr("y", function(d) { return y(d.avgspeed); })
       .attr("height", function(d) { return height - y(d.avgspeed); });
-
-  // add the x Axis
-  svg.selectAll("g")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xaxis);
-
-  // add the y Axis
-  svg.selectAll("g")
-      .call(yaxis);
 	
 });
 
