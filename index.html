@@ -132,16 +132,6 @@ d3.csv("./upload.csv", function(error, data) {
       .attr("y", function(d) { return y(d.avgspeed); })
       .attr("height", function(d) { return height - y(d.avgspeed); });
 
-  // add the x Axis
-  svg.selectAll("g")
-      .duration(750)
-      .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x));
-
-  // add the y Axis
-  svg.selectAll("g")
-      .duration(750)
-      .call(d3.axisLeft(y));
 });
 
 }
