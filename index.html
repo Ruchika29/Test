@@ -66,6 +66,13 @@ d3.csv("./download.csv", function(error, data) {
   svg.append("g")
       .call(d3.axisLeft(y));
 
+ bar.append("text")
+//   each text's x coord inherit from each g's transform-translate, after translate, each rect's topLeft corner its origin as (0, 0)
+      .attr("x", xScale.bandwidth() / 2)
+      .attr("y", function(d) { return yScale(d.value) - 10; })
+      .attr("dy", "0.5em")// it seems change y position
+      .text(function(d) { return d.value; });
+	
 });
 
 </script>
