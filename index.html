@@ -109,30 +109,6 @@ d3.csv("./download.csv", function(error, data) {
       .call(yaxis);
 });
 
-
-// ** Update data section (Called from the onclick)
-function updateData() {
-// get the data
-d3.csv("./upload.csv", function(error, data) {
-  if (error) throw error;
-
-  // format the data
-  data.forEach(function(d) {
-    d.avgspeed = +d.avgspeed;
-  });
-	
-  var svg = d3.select("body").transition();
-  // append the rectangles for the bar chart
-  svg.selectAll(".bar")
-      .duration(750)
-      .attr("x", function(d) { return x(d.operator); })
-      .attr("width", x.bandwidth())
-      .attr("y", function(d) { return y(d.avgspeed); })
-      .attr("height", function(d) { return height - y(d.avgspeed); });
-	
-});
-
-}
 	
 </script>
 </body>
