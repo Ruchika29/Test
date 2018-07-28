@@ -122,8 +122,8 @@ d3.csv("./upload.csv", function(error, data) {
   x.domain(data.map(function(d) { return d.operator; }));
   y.domain([0, d3.max(data, function(d) { return d.avgspeed; })]);
 
-  var xaxis = d3.axisBottom(xscale);
-  var yaxis = d3.axisLeft(yscale);
+  var xaxis = d3.axisBottom(x);
+  var yaxis = d3.axisLeft(y);
 	
   var svg = d3.select("body").transition();
   // append the rectangles for the bar chart
@@ -135,12 +135,12 @@ d3.csv("./upload.csv", function(error, data) {
       .attr("height", function(d) { return height - y(d.avgspeed); });
 
   // add the x Axis
-  svg.append("g")
+  svg.selectAll("g")
       .attr("transform", "translate(0," + height + ")")
       .call(xaxis);
 
   // add the y Axis
-  svg.append("g")
+  svg.selectAll("g")
       .call(yaxis);
 	
 });
