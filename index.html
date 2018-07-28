@@ -133,13 +133,13 @@ d3.csv("./upload.csv", function(error, data) {
       .attr("height", function(d) { return height - y(d.avgspeed); });
 
   // add the x Axis
-  svg.append("g")
+  svg.selectAll("g")
       .duration(750)
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x));
 
   // add the y Axis
-  svg.append("g")
+  svg.selectAll("g")
       .duration(750)
       .call(d3.axisLeft(y));
 });
