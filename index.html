@@ -120,25 +120,6 @@ d3.csv("./upload.csv", function(error, data) {
   data.forEach(function(d) {
     d.avgspeed = +d.avgspeed;
   });
-
-// set the dimensions and margins of the graph
-var margin = {top: 20, right: 20, bottom: 30, left: 40},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
-	
-// set the ranges
- var x = d3.scaleBand()
-          .range([0, width])
-          .padding(0.1);
- var y = d3.scaleLinear()
-          .range([height, 0]);
-	
-  // Scale the range of the data in the domains
-  x.domain(data.map(function(d) { return d.operator; }));
-  y.domain([0, d3.max(data, function(d) { return d.avgspeed; })]);
-
-  var xaxis = d3.axisBottom(x);
-  var yaxis = d3.axisLeft(y);
 	
   var svg = d3.select("body").transition();
   // append the rectangles for the bar chart
